@@ -5,7 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Whether</title>
   </head>
-  <body style="background-color: #000; color: white"></body>
+  <body style="background-color: #000; color: white">
+    <div class="wrapper">
+      <h1>Weather App</h1>
+
+      <div class="tab-container">
+        <p class="tab" data-useWeather>Your Weather</p>
+        <p class="tab" data-searchWeather>Search Weather</p>
+      </div>
+      <div class="weather-container">
+        <!-- grant-location container   -->
+
+        <div class="grant-location-container">
+          <img
+            src="Images\location.png"
+            width="80"
+            height="80"
+            loading="lazy"
+          />
+          <p>grant location Access</p>
+          <p>Allow Access to get weather Information</p>
+          <button class="btn" data-grantAccess>Grant Access</button>
+        </div>
+
+        <!-- search form   -->
+
+        <form class="form-container" data-searchForm>
+          <input placeholder="Search for City.." data-searchInput />
+          <button class="btn">
+            <img src="" alt="" />
+          </button>
+        </form>
+
+        <!-- loading screen container   -->
+        <div class="loading-container">
+          <img src="Images\loading.gif" width="150" height="150" />
+          <p>loading</p>
+
+          <!-- show-weather -->
+
+          <div class="user-info-container">
+            <div class="name">
+              <p data-cityName></p>
+              <img data-countryIcon />
+            </div>
+            <p data-weatherDesc></p>
+            <img data-weatherIcon>
+            <p data-temp></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 
   <script src="script.js"></script>
 </html>

@@ -44,3 +44,31 @@ async function getCustomWetherdata() {
 getCustomWetherdata()
 
 
+
+
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition)
+    
+  }
+
+  else{
+    console.log("no position");
+  }
+
+  function showPosition(position) {
+    let lat=position.coords.latitude;
+    let lon=position.coords.longitude
+    console.log(lat)
+    console.log(lon)
+
+    // return (lat,lon)
+    
+  }
+  
+}
+
+
+getLocation()
