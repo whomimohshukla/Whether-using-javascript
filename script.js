@@ -1,74 +1,33 @@
+const userTab = document.querySelector("[data-useWeather]");
+const searchTab = document.querySelector("[data-searchWeather]");
+const userContainer = document.querySelector(".weather-container");
+const granAccessContainer = document.querySelector(".grant-location-container");
+const searchForm = document.querySelector("[data-searchForm]");
+const loadingScreen = document.querySelector(".user-info-container");
+
+let currentTab = userTab;
 const API_KEY = "168771779c71f3d64106d8a88376808a";
-function renderWeatherInfo(data) {
 
-  let newpara = document.createElement("p");
-  newpara.innerText = `${data?.main?.temp.toFixed(2)} °C`;
-  document.body.appendChild(newpara);
- 
-  console.log("mim");
-  
-}
+currentTab.classList.add("current-tab");
 
-async function fetchWhether() {
-  try {
-    let city = "goa";
+function switchTab(clicked) {
+  if (clicked != currentTab) {
+    currentTab.classList.remove("current-tab")
+    currentTab=clicked;
+    currentTab.classList.add("current-tab")
 
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    const data = await response.json();
-    console.log(data);
-    renderWeatherInfo(data);
-
-   
-
-  } catch (error) {
-    console.log(error);
+    if (searchForm.classList.contains("active")) {
+      
+      
+    }
   }
 }
-fetchWhether()
 
+userTab.addEventListener("click", () => {
+  //pass clicked tab as input parameter
+  switchTab(userTab);
+});
 
-async function getCustomWetherdata() {
-   try {
-    let lat=28.984644
-    let lon=77.705956
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
-    let data= await response.json()
-    console.log(data);
-    
-   } catch (error) {
-    console.log("Error:something went wrong");
-   }
-}
-getCustomWetherdata()
-
-
-
-
-
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition)
-    
-  }
-
-  else{
-    console.log("no position");
-  }
-
-  function showPosition(position) {
-    let lat=position.coords.latitude;
-    let lon=position.coords.longitude
-    console.log(lat)
-    console.log(lon)
-
-    // return (lat,lon)
-    
-  }
-  
-}
-
-
-getLocation()
+searchTab.addEventListener("click", function () {
+  switchTab(searchTab)
+});
