@@ -27,4 +27,4 @@ A lightweight, responsive weather application built with vanilla JavaScript, HTM
 ## 🚀 Quick Start
 1. Clone the repository
 ```bash
-git clone https://github.com/whomimohshukla
+git clone https://github.com/whomimohshukla/Whether-using-javascript
